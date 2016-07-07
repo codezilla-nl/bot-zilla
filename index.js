@@ -1,4 +1,7 @@
+"use strict";
+
 const Botkit = require('botkit');
+const utils = require('./utils');
 
 const token = process.env.SLACK_TOKEN;
 
@@ -30,27 +33,22 @@ controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "RRRAAAAHHHWWRR!");
 });
 
-controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
-    bot.reply(message, 'Hello.');
-});
-
-controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
-    bot.reply(message, 'Hello.');
-    bot.reply(message, 'It\'s nice to talk to you directly.');
+controller.hears(['hello', 'hi'], ['direct_mention', 'direct_message'], function (bot, message) {
+    bot.reply(message, 'Hoi!');
 });
 
 controller.hears('.*', ['mention'], function (bot, message) {
-    bot.reply(message, 'You really do care about me. :heart:');
+    bot.reply(message, 'Euhhh, hoi');
 });
 
-controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
-    var help = 'I will respond to the following messages: \n' +
-        '`bot hi` for a simple message.\n' +
-        '`bot attachment` to see a Slack attachment message.\n' +
-        '`@<your bot\'s name>` to demonstrate detecting a mention.\n' +
-        '`bot help` to see this again.';
-    bot.reply(message, help);
-});
+// controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
+//     var help = 'I will respond to the following messages: \n' +
+//         '`bot hi` for a simple message.\n' +
+//         '`bot attachment` to see a Slack attachment message.\n' +
+//         '`@<your bot\'s name>` to demonstrate detecting a mention.\n' +
+//         '`bot help` to see this again.';
+//     bot.reply(message, help);
+// });
 
 controller.hears(['rust[a]+[gh]'], ['direct_message', 'direct_mention'], function (bot, message) {
     var text = 'Rustaaaaaaaaaag!';
@@ -63,6 +61,10 @@ controller.hears(['rust[a]+[gh]'], ['direct_message', 'direct_mention'], functio
     });
 });
 
+controller.hears(['(?=.*bijna)(?=.*weekend)'], ['ambient', 'direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, utils.isItAlmostWeekend(message.user));
+});
+
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
-    bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n');
+    bot.reply(message, 'Sorry <@' + message.user + '>, ik heb geen idee waar je het over hebt. \n');
 });
