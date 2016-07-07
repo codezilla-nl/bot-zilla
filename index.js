@@ -50,7 +50,7 @@ controller.hears('.*', ['mention'], function (bot, message) {
 //     bot.reply(message, help);
 // });
 
-controller.hears(['rust[a]+[gh]'], ['direct_message', 'direct_mention'], function (bot, message) {
+controller.hears(['rust[a]+[gh]'], ['ambient', 'direct_message', 'direct_mention'], function (bot, message) {
     var text = 'Rustaaaaaaaaaag!';
     bot.reply(message, {
         attachments: [{
