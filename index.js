@@ -52,8 +52,8 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
     bot.reply(message, help);
 });
 
-controller.hears('rustaaag', ['direct_message', 'direct_mention'], function (bot, message) {
-    bot.reply(message, 'Ruusttaaaaaaag Nico!');
+controller.hears(/rust[a]+[gh]/i, ['direct_message', 'direct_mention'], function (bot, message) {
+    bot.reply(message, 'Ruustaaaaaaahhhhg Nico!');
 });
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
