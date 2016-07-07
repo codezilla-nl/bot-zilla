@@ -33,7 +33,7 @@ controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "RRRAAAAHHHWWRR!");
 });
 
-controller.hears(['hello', 'hi'], ['direct_mention', 'direct_message'], function (bot, message) {
+controller.hears(['hello', 'hi', 'hoi', 'hey'], ['direct_mention', 'direct_message'], function (bot, message) {
     bot.reply(message, 'Hoi!');
 });
 
