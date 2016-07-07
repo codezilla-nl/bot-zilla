@@ -52,8 +52,15 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
     bot.reply(message, help);
 });
 
-controller.hears(/rust[a]+[gh]/i, ['direct_message', 'direct_mention'], function (bot, message) {
-    bot.reply(message, 'Ruustaaaaaaahhhhg Nico!');
+controller.hears(['rust[a]+[gh]'], ['direct_message', 'direct_mention'], function (bot, message) {
+    var text = 'Rustaaaaaaaaaag!';
+    bot.reply(message, {
+        attachments: [{
+            "fallback": text,
+            "text": text,
+            "image_url": "http://i.imgur.com/r4jvWI9.jpg"
+        }]
+    });
 });
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
