@@ -1,7 +1,8 @@
-"use strict";
-
 const Botkit = require('botkit');
+const _ = require('lodash');
+
 const utils = require('./utils');
+const babble = require('./babble.json');
 
 const token = process.env.SLACK_TOKEN;
 
@@ -33,12 +34,16 @@ controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "RRRAAAAHHHWWRR!");
 });
 
-controller.hears(['hello', 'hi', 'hoi', 'hey'], ['direct_mention', 'direct_message'], function (bot, message) {
+controller.hears(['hello', 'hi', 'hoi', 'hey'], ['mention', 'direct_mention', 'direct_message'], function (bot, message) {
     bot.reply(message, 'Hoi!');
 });
 
 controller.hears('.*', ['mention'], function (bot, message) {
-    bot.reply(message, 'Euhhh, hoi');
+    if (_.endsWith(message.text, '?')) {
+        bot.reply(message, _.sample(babble.reaction.confirm));
+    } else {
+        bot.reply(message, _.sample(babble.reaction.greeting));
+    }
 });
 
 // controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {

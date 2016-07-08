@@ -1,0 +1,42 @@
+{
+  "reaction": {
+    "greeting": [
+      "Hallo! :)",
+      "O hai!",
+      "Hoi!",
+      "Yo dude!"
+    ],
+    "confirm": [
+      "Goed verhaal",
+      "Ja best wel een goed verhaal eigenlijk",
+      "Ik zou het gewoon doen.",
+      "42",
+      "Ja... toch?",
+      "Zeker doen",
+      "Nee zou het niet doen",
+      "JA?",
+      "Slecht verhaal",
+      "Waarom zou je dat willen?",
+      "Vraag het eens aan Arno",
+      "Vraag het toch maar niet aan Arno",
+      "Ik vind er niks aan...",
+      "Ik zal er over nadenken",
+      "Laat me slapen",
+      "Does not compute...",
+      "Computer says No.",
+      "Ik zal er een nachtje over slapen",
+      "Waarom?",
+      "Ja, maar wil je dat?",
+      "Kan niet missen",
+      "Dat weet ik..!",
+      "Over het algemeen genomen zou dat dé of één van de opties kunnen zijn, mits het past in de context of billijkheid van het vraagstuk natuurlijk.",
+      "Affirmative",
+      "Negatory",
+      "Technical Unexpected Layer Error ! #FİX ÇÖZÜLDÜ!",
+      "Indubitably",
+      "Computer says nooooooo",
+      "Zoltan!",
+      "Rustaaaaaaag Nico"
+    ]
+  }
+}
